@@ -2,6 +2,10 @@ class Error(Exception):
     """pass"""
 
 
+class NotEUMember(Error):
+    """pass"""
+
+
 class InvalidInput(Error):
     """pass"""
 
