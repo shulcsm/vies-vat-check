@@ -21,6 +21,18 @@ class Client(object):
         if not is_eu_member(country_code):
             raise NotEUMember
 
+        """
+        http://publications.europa.eu/code/pdf/370000en.htm
+        The abbreviations to use are the ISO codes, except for Greece and the United Kingdom,
+        for which EL and UK are recommended (instead of GR and GB).
+        The former abbreviations were generally taken from the international code for automobiles and were used
+        until the end of 2002.
+
+        United Kingodm is fine but we have to remap Greece???
+        """
+        if country_code == 'GR':
+            country_code = 'EL'
+
         try:
             response = self.zeep.service.checkVat(
                 countryCode=country_code, vatNumber=vat_number)
