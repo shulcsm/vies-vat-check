@@ -7,7 +7,7 @@ from viesvatcheck.exceptions import EXCEPTION_MAP
 client = Client(TEST_WSDL)
 
 
-def test_valid_request_valid_number():
+def test_check_valid_request_valid_number():
     success, response = client.check('LV', '100')
     assert success is True
     assert response == {
@@ -20,7 +20,7 @@ def test_valid_request_valid_number():
     }
 
 
-def test_valid_request_invalid_number():
+def test_check_valid_request_invalid_number():
     success, response = client.check('LV', '200')
     assert success is False
     assert response == {
@@ -30,6 +30,52 @@ def test_valid_request_invalid_number():
         'valid': False,
         'name': '---',
         'address': '---'
+    }
+
+
+def test_approx_valid_request_valid_number():
+    success, response = client.check_approx('LV', '100')
+    assert success is True
+    assert response == {
+        'requestIdentifier': 'WAPI0000001',
+        'traderAddress': '123 Main St, Anytown, UK',
+        'traderCity': None,
+        'traderCityMatch': '1',
+        'traderCompanyType': '000',
+        'traderCompanyTypeMatch': None,
+        'traderName': 'John Doe',
+        'traderNameMatch': None,
+        'traderPostcode': None,
+        'traderPostcodeMatch': '1',
+        'traderStreet': None,
+        'traderStreetMatch': '1',
+        'countryCode': 'LV',
+        'vatNumber': '100',
+        'requestDate': datetime.now().date(),
+        'valid': True
+    }
+
+
+def test_approx_valid_request_invalid_number():
+    success, response = client.check_approx('LV', '200')
+    assert success is False
+    assert response == {
+        'requestIdentifier': 'WAPI0000001',
+        'traderAddress': '---',
+        'traderCity': None,
+        'traderCityMatch': None,
+        'traderCompanyType': '---',
+        'traderCompanyTypeMatch': None,
+        'traderName': '---',
+        'traderNameMatch': None,
+        'traderPostcode': None,
+        'traderPostcodeMatch': None,
+        'traderStreet': None,
+        'traderStreetMatch': None,
+        'countryCode': 'LV',
+        'vatNumber': '200',
+        'requestDate': datetime.now().date(),
+        'valid': False,
     }
 
 
