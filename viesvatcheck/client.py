@@ -3,8 +3,10 @@ from typing import Tuple, Optional, Dict, Callable
 import zeep
 from zeep.exceptions import Fault
 from zeep.helpers import serialize_object
-from .exceptions import EXCEPTION_MAP, OtherError, NotEUMember
+from .exceptions import EXCEPTION_MAP, OtherError, NotEUMember, ServiceDown
 from .countries import is_eu_member
+from requests.exceptions import ConnectionError
+
 
 PROD_WSDL = "http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl"
 TEST_WSDL = "http://ec.europa.eu/taxation_customs/vies/checkVatTestService.wsdl"
@@ -34,7 +36,12 @@ def parse_country_code(country_code: str) -> str:
 
 class Client(object):
     def __init__(self, wsdl: str = PROD_WSDL) -> None:
-        self.zeep = zeep.CachingClient(wsdl=wsdl)
+        try:
+            self.zeep = zeep.CachingClient(wsdl=wsdl)
+
+        except ConnectionError as e:
+            # Failed to fetch wsdl
+            raise ServiceDown(str(e))
 
     def _request(self, method: Callable, **arguments) -> Response:
         try:
@@ -66,7 +73,7 @@ class Client(object):
                      requester_vat_number: Optional[str] = None) -> Response:
 
         country_code = parse_country_code(country_code)
-        resp = self._request(
+        return self._request(
             self.zeep.service.checkVatApprox,
             countryCode=country_code,
             vatNumber=vat_number,
@@ -78,5 +85,3 @@ class Client(object):
             requesterCountryCode=requester_country_code,
             requesterVatNumber=requester_vat_number
         )
-        print(resp)
-        return resp

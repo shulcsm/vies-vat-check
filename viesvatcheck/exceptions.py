@@ -2,6 +2,10 @@ class Error(Exception):
     """pass"""
 
 
+class ServiceDown(Error):
+    """pass"""
+
+
 class NotEUMember(Error):
     """pass"""
 
