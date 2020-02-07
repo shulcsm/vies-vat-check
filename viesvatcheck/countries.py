@@ -27,7 +27,7 @@ COUNTRIES = {
     "SI",  # Slovenia
     "ES",  # Spain
     "SE",  # Sweden
-    "GB",  # United Kingdom
+    # "GB",  # United Kingdom (left on 31 January 2020)
 }
 
 

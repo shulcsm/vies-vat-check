@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='viesvatcheck',
-    version='0.1.4',
+    version='0.1.5',
     url='https://github.com/shulcsm/vies-vat-check',
     author='Mārtiņš Šulcs',
     author_email='shulcsm@gmail.com',
@@ -22,6 +22,6 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-       'zeep>=2.5.0',
+       'zeep>=3.4.0',
     ]
 )
