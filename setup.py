@@ -22,6 +22,6 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-       'zeep>=3.4.0',
+       'zeep>=4.0.0',
     ]
 )
