@@ -6,10 +6,6 @@ class ServiceDown(Error):
     """pass"""
 
 
-class NotEUMember(Error):
-    """pass"""
-
-
 class InvalidInput(Error):
     """pass"""
 
@@ -59,15 +55,15 @@ class OtherError(Error):
 
 
 EXCEPTION_MAP = {
-    'INVALID_INPUT': InvalidInput,
-    'INVALID_REQUESTER_INFO': InvalidRequesterInput,
-    'SERVICE_UNAVAILABLE': ServiceUnavailable,
-    'MS_UNAVAILABLE': MSUnavailable,
-    'TIMEOUT': Timeout,
-    'VAT_BLOCKED': VATBlocked,
-    'IP_BLOCKED': IPBlocked,
-    'GLOBAL_MAX_CONCURRENT_REQ': GlobalMaxConcurrentReq,
-    'GLOBAL_MAX_CONCURRENT_REQ_TIME': GlobalMaxConcurrentReqTime,
-    'MS_MAX_CONCURRENT_REQ': MSMaxConcurrentReq,
-    'MS_MAX_CONCURRENT_REQ_TIME': MsGlobalMaxConcurrentReqTime
+    "INVALID_INPUT": InvalidInput,
+    "INVALID_REQUESTER_INFO": InvalidRequesterInput,
+    "SERVICE_UNAVAILABLE": ServiceUnavailable,
+    "MS_UNAVAILABLE": MSUnavailable,
+    "TIMEOUT": Timeout,
+    "VAT_BLOCKED": VATBlocked,
+    "IP_BLOCKED": IPBlocked,
+    "GLOBAL_MAX_CONCURRENT_REQ": GlobalMaxConcurrentReq,
+    "GLOBAL_MAX_CONCURRENT_REQ_TIME": GlobalMaxConcurrentReqTime,
+    "MS_MAX_CONCURRENT_REQ": MSMaxConcurrentReq,
+    "MS_MAX_CONCURRENT_REQ_TIME": MsGlobalMaxConcurrentReqTime,
 }
