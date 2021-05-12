@@ -1,7 +1,7 @@
 Changes
 =======
 
-0.2
+0.2.0
 ------------------
 
 * Add country pattern map, parsing

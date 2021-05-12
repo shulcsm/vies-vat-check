@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='viesvatcheck',
-    version='0.2',
+    version='0.2.0',
     url='https://github.com/shulcsm/vies-vat-check',
     author='Mārtiņš Šulcs',
     author_email='shulcsm@gmail.com',
@@ -11,7 +11,7 @@ setup(
     include_package_data=True,
     license='MIT',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        "Development Status :: 5 - Production/Stable",
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
