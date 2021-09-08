@@ -1,7 +1,7 @@
 from typing import Tuple, Optional, Dict, Callable
 
 import zeep
-from zeep.exceptions import Fault
+from zeep.exceptions import Fault, XMLSyntaxError
 from zeep.helpers import serialize_object
 from .exceptions import EXCEPTION_MAP, OtherError, ServiceDown
 from requests.exceptions import ConnectionError
@@ -40,6 +40,8 @@ class Client(object):
                 raise EXCEPTION_MAP[error.message]
             except KeyError:
                 raise OtherError
+        except XMLSyntaxError as e:
+            raise ServiceDown(str(e))
 
     def check(self, country_code: str, vat_number: str) -> Response:
         return self._request(
