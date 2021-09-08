@@ -1,6 +1,14 @@
 Changes
 =======
 
+0.3.0
+------------------
+
+* Allow to configure cahce params
+* update urllib
+* handle XMLSyntaxError
+* missing anchors
+
 0.2.0
 ------------------
 

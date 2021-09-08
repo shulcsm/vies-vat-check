@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='viesvatcheck',
-    version='0.2.0',
+    version='0.3.0',
     url='https://github.com/shulcsm/vies-vat-check',
     author='Mārtiņš Šulcs',
     author_email='shulcsm@gmail.com',
