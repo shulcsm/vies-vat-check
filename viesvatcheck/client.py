@@ -5,6 +5,8 @@ from zeep.exceptions import Fault
 from zeep.helpers import serialize_object
 from .exceptions import EXCEPTION_MAP, OtherError, ServiceDown
 from requests.exceptions import ConnectionError
+from zeep.cache import SqliteCache
+from zeep.transports import Transport
 
 
 PROD_WSDL = "http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl"
@@ -14,9 +16,16 @@ Response = Tuple[bool, Optional[Dict]]
 
 
 class Client(object):
-    def __init__(self, wsdl: str = PROD_WSDL) -> None:
+    def __init__(
+        self,
+        wsdl: str = PROD_WSDL,
+        cache_path: Optional[str] = None,
+        cache_timeout: Optional[int] = None,
+    ) -> None:
         try:
-            self.zeep = zeep.CachingClient(wsdl=wsdl)
+            cache = SqliteCache(path=cache_path, timeout=cache_timeout)
+            transport = Transport(cache=cache)
+            self.zeep = zeep.Client(wsdl, transport=transport)
 
         except ConnectionError as e:
             # Failed to fetch wsdl
