@@ -52,11 +52,11 @@ COUNTRY_MAP = {
     # Romania
     "RO": re.compile(r"^RO\d{2,10}$"),
     # Sweden
-    "SE": re.compile(r"^SE\d{12}"),
+    "SE": re.compile(r"^SE\d{12}$"),
     # Slovenia
-    "SI": re.compile(r"^SI\d{8}"),
+    "SI": re.compile(r"^SI\d{8}$"),
     # Slovakia
-    "SK": re.compile(r"^SK\d{10}"),
+    "SK": re.compile(r"^SK\d{10}$"),
     # Northern Ireland
     "XI": re.compile(r"^XI(?:\d{9}(?:\d{3})?|GD\d{3}|HA\d{3})$"),
     # "GB" United Kingdom (left on 31 January 2020)
