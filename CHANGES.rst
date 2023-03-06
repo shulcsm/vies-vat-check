@@ -1,6 +1,13 @@
 Changes
 =======
 
+0.4.0
+------------------
+
+* use poetry
+* bump min python version to 3.8
+* update zeep
+
 0.3.0
 ------------------
 
