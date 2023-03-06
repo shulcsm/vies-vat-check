@@ -1,10 +1,10 @@
-flake8:
-	flake8 viesvatcheck tests
+ruff:
+	ruff .
 
 test:
-	python -m pytest tests/
+	pytest tests/
 
 mypy:
-	python -m mypy viesvatcheck/ --ignore-missing-imports
+	python -m mypy src/viesvatcheck/ --ignore-missing-imports
 
-lint: test flake8 mypy
+lint: test ruff mypy

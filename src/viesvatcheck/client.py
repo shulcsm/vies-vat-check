@@ -9,8 +9,8 @@ from zeep.cache import SqliteCache
 from zeep.transports import Transport
 
 
-PROD_WSDL = "http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl"
-TEST_WSDL = "http://ec.europa.eu/taxation_customs/vies/checkVatTestService.wsdl"
+PROD_WSDL = "https://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl"
+TEST_WSDL = "https://ec.europa.eu/taxation_customs/vies/checkVatTestService.wsdl"
 
 Response = Tuple[bool, Optional[Dict]]
 

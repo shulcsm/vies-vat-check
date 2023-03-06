@@ -1,4 +1,4 @@
 vies-vat-check
 ==============================================
 
-Python client for http://ec.europa.eu/taxation_customs/vies/vieshome.do
+Python client for https://ec.europa.eu/taxation_customs/vies/#/technical-information
