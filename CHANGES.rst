@@ -1,6 +1,13 @@
 Changes
 =======
 
+0.5.0
+------------------
+
+* use uv
+* bump min python version to 3.9
+* update zeep
+
 0.4.0
 ------------------
 

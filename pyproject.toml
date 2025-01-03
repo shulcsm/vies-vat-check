@@ -1,6 +1,6 @@
 [project]
 name = "viesvatcheck"
-version = "0.4.0"
+version = "0.5.0"
 description = ""
 authors = [{ name = "Mārtiņš Šulcs", email = "shulcsm@gmail.com" }]
 license = "MIT"
